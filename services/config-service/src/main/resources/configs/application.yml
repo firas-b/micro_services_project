@@ -1,0 +1,29 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+spring:
+  cloud:
+    config:
+      override-system-properties: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:8080/realms/microservices"
+
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+# for the jwt converter
+jwt:
+  auth:
+    converter:
+      resource-id: microservices
+      principle-attribute: preferred_username

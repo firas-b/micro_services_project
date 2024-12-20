@@ -8,7 +8,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.SecurityFilterChain;
+
+import java.security.Principal;
 
 @Configuration
 @EnableMethodSecurity
@@ -22,7 +27,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/user-service/v3/**").permitAll()
-                        .requestMatchers("/api/users/{user-id}").permitAll()
+                        .requestMatchers("/api/users/keycloak/**").permitAll() // Permit login e
                         .requestMatchers("/api/users/debug-headers").permitAll()
                         .anyRequest().authenticated() // Ensure all requests are authenticated
                 ).oauth2ResourceServer(oauth2 -> oauth2

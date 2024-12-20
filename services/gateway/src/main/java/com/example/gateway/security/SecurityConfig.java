@@ -24,7 +24,7 @@ public class SecurityConfig {
                         .pathMatchers("v3/api-docs/swagger-config").permitAll()
                         .pathMatchers("/user-service/v3/api-docs/**").permitAll()
                         .pathMatchers("/v3/api-docs/**").permitAll()
-                        .pathMatchers("/user-service/v3/api-docs").permitAll()
+                        .pathMatchers("/blog-service/v3/api-docs/**").permitAll()
 
 
 

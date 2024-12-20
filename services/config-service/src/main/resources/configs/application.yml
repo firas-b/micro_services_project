@@ -26,4 +26,4 @@ jwt:
   auth:
     converter:
       resource-id: microservices
-      principle-attribute: preferred_username
+      principle-attribute: sub

@@ -1,8 +1,9 @@
 package com.example.userservice.user;
 
+import jakarta.annotation.Nullable;
 import lombok.Builder;
 
-@Builder
+
 
 public record UserRequest(
          String id,
@@ -11,7 +12,9 @@ public record UserRequest(
          String email,
          String phone,
          Role role,
-         Address address
+         Address address ,
+         @Nullable
+         String password
 
 ) {
 }

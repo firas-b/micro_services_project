@@ -16,12 +16,13 @@ public class GatewayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayApplication.class, args);
 	}
-	@Bean
-	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
-		return builder
-				.routes()
-				.route(r -> r.path("/user-service/v3/api-docs").and().method(HttpMethod.GET).uri("lb://USER-SERVICE"))
-				//.route(r -> r.path("/product-service/v3/api-docs").and().method(HttpMethod.GET).uri("lb://product-service"))
-				.build();
-	}
+//	@Bean
+//	public RouteLocator routeLocator(RouteLocatorBuilder builder) {
+//		return builder
+//				.routes()
+//				.route(r -> r.path("/user-service/v3/api-docs").and().method(HttpMethod.GET).uri("lb://USER-SERVICE"))
+//				.route(r -> r.path("/blog-service/v3/api-docs").and().method(HttpMethod.GET).uri("lb://BLOG-SERVICE"))
+//				//.route(r -> r.path("/product-service/v3/api-docs").and().method(HttpMethod.GET).uri("lb://product-service"))
+//				.build();
+//	}
 }

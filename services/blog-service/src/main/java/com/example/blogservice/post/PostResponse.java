@@ -9,7 +9,7 @@ import java.util.List;
 
 public record PostResponse(
 
-
+        int id,
         String title,
         String content,
         String author,

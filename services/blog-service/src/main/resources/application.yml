@@ -4,3 +4,15 @@ spring:
 
   application:
     name: blog-service
+
+openapi:
+  service:
+    title: blog-service doc
+    version: 1.0.0
+    url: http://localhost:8222
+
+springdoc:
+  api-docs:
+    path: /blog-service/v3/api-docs
+  swagger-ui:
+    path: /blog-service/swagger-ui.html

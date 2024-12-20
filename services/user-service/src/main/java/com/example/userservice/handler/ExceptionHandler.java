@@ -1,5 +1,6 @@
 package com.example.userservice.handler;
 
+import com.example.userservice.exceptions.KeycloakException;
 import com.example.userservice.exceptions.UserNotFoundExc;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,5 +13,11 @@ public class ExceptionHandler {
     public ResponseEntity<String> userNotFoundExc(UserNotFoundExc userNotFoundExc) {
 
         return new ResponseEntity<>(userNotFoundExc.getMsg(), HttpStatus.NOT_FOUND);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(KeycloakException.class)
+    public ResponseEntity<String> keycloakExc(KeycloakException keycloakExc) {
+
+        return new ResponseEntity<>(keycloakExc.getMsg(), HttpStatus.NOT_FOUND);
     }
 }

@@ -1,6 +1,11 @@
 server:
   port: 8050
 spring:
+  # OAuth2 support can be enabled by adding the spring-boot-starter-oauth2-client dependency to your project and setting following flag:
+  cloud:
+    openfeign:
+      oauth2:
+         enabled: true
 
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -16,4 +21,4 @@ spring:
 
 application:
   config:
-    user-url: http://localhost:8222/api/v1/user
+    user-url: http://localhost:8222/api/users

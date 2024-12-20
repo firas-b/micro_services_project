@@ -1,12 +1,15 @@
 package com.example.blogservice.config;
 
 
+import feign.RequestInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -20,8 +23,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/{user-id}").permitAll()
-                        .requestMatchers("/api/users/debug-headers").permitAll()
+
+                        .requestMatchers("/blog-service/v3/**").permitAll()
                         .anyRequest().authenticated() // Ensure all requests are authenticated
                 ).oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwt -> jwt
@@ -32,4 +35,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+
+
 }

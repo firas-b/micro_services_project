@@ -49,7 +49,7 @@ public class Post {
         return this.getComments().size();
     }
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post" ,fetch = FetchType.EAGER)
     private List<Comment> comments;
 
 }

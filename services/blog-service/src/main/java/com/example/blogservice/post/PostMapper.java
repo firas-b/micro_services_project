@@ -21,7 +21,7 @@ public class PostMapper {
     public PostResponse toPostResponse(Post post) {
 
         return new PostResponse(
-               post.getTitle(), post.getContent(), post.getAuthor(), post.getPhoto()
+               post.getId(),post.getTitle(), post.getContent(), post.getAuthor(), post.getPhoto()
         );
     }
 }

@@ -17,7 +17,7 @@ spring:
         - id: blog-service
           uri: lb:http://BLOG-SERVICE
           predicates:
-            - Path=/api/posts/**
+            - Path=/api/posts/** ,/blog-service/v3/api-docs
         - id: comments-service
           uri: lb:http://BLOG-SERVICE
           predicates:

@@ -60,6 +60,7 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: admin
     command:
       - start-dev
+      - --log-level=DEBUG
     ports:
       - "8080:8080"
 
